@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/R-PathfindingAlgorithmsVisualizer/static/css/main.d03f9d90.chunk.css",
+    "main.js": "/R-PathfindingAlgorithmsVisualizer/static/js/main.46661f3a.chunk.js",
+    "main.js.map": "/R-PathfindingAlgorithmsVisualizer/static/js/main.46661f3a.chunk.js.map",
+    "runtime-main.js": "/R-PathfindingAlgorithmsVisualizer/static/js/runtime-main.a417061a.js",
+    "runtime-main.js.map": "/R-PathfindingAlgorithmsVisualizer/static/js/runtime-main.a417061a.js.map",
+    "static/js/2.925026ac.chunk.js": "/R-PathfindingAlgorithmsVisualizer/static/js/2.925026ac.chunk.js",
+    "static/js/2.925026ac.chunk.js.map": "/R-PathfindingAlgorithmsVisualizer/static/js/2.925026ac.chunk.js.map",
+    "index.html": "/R-PathfindingAlgorithmsVisualizer/index.html",
+    "static/css/main.d03f9d90.chunk.css.map": "/R-PathfindingAlgorithmsVisualizer/static/css/main.d03f9d90.chunk.css.map",
+    "static/js/2.925026ac.chunk.js.LICENSE.txt": "/R-PathfindingAlgorithmsVisualizer/static/js/2.925026ac.chunk.js.LICENSE.txt",
+    "static/media/first.fde34b19.svg": "/R-PathfindingAlgorithmsVisualizer/static/media/first.fde34b19.svg",
+    "static/media/last.669ffbe1.svg": "/R-PathfindingAlgorithmsVisualizer/static/media/last.669ffbe1.svg",
+    "static/media/logo.d604f430.svg": "/R-PathfindingAlgorithmsVisualizer/static/media/logo.d604f430.svg",
+    "static/media/next.cd2a56f4.svg": "/R-PathfindingAlgorithmsVisualizer/static/media/next.cd2a56f4.svg",
+    "static/media/previous.e6b3ab3d.svg": "/R-PathfindingAlgorithmsVisualizer/static/media/previous.e6b3ab3d.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a417061a.js",
+    "static/js/2.925026ac.chunk.js",
+    "static/css/main.d03f9d90.chunk.css",
+    "static/js/main.46661f3a.chunk.js"
+  ]
+}
