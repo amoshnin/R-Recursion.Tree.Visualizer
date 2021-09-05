@@ -5,7 +5,11 @@
 <h1 align="center">Recursion Tree Visualizer</h1>
 
 <p align="center">Tool for visualizing any generic recursive function written in JavaScript or Python.</p>
-
+<p align="center">Recursion is a concept that is best understood through visualization. In this video, you will see visualization for different kinds of recursions. For simplicity, I chose to animate recursive functions using trees. Properties of the recursion tree visualizations are:
+* Each node represents a single recursive function call.
+* The height of the recursion tree is the depth of our function call stack.
+* The rate of change of the tree's width represents the time complexity of our function.</p>
+*
 ## Overview
 
 Stop drawing recursion trees by hand. Watch the [demo video](https://youtu.be/1f-KeeN8AHs) or check out the [live project](https://recursion.now.sh).
