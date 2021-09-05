@@ -11,8 +11,12 @@ Watch the [demo video](https://youtu.be/1f-KeeN8AHs) or check out the [live proj
 > Properties of the recursion tree visualizations are:
 >
 > - Each node represents a single recursive function call.
-> - The height of the recursion tree is the depth of our function call stack.
-> - The rate of change of the tree's width represents the time complexity of our function.
+> - The height of the recursion tree is the depth of our function call stack (n).
+> - The rate of change of the tree’s width represents the time complexity of our function (m):
+
+<div align="center">
+  <img src="./assets/recursion_tree.png" height="300"/>
+</div>
 
 ### Folders structure
 
