@@ -18,7 +18,7 @@ Watch the [demo video](https://youtu.be/1f-KeeN8AHs) or check out the [live proj
   <img src="./assets/recursion_tree.png" height="300"/>
 </div>
 
-Image taken from [QuanticDev blog post](https://quanticdev.com/algorithms/primitives/recursion-visualization/#resources)
+<center>Image taken from [QuanticDev blog post](https://quanticdev.com/algorithms/primitives/recursion-visualization/#resources)</center>
 
 ### Folders structure
 
