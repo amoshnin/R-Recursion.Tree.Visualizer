@@ -42,6 +42,10 @@ type PropsType = {
 }
 
 const FunctionForm = ({ onSubmit, onThemeChange }: PropsType) => {
+  function capitalizeFirstLetter(string: string) {
+    return string.charAt(0).toUpperCase() + string.slice(1)
+  }
+
   const [lang, setLang] = useLocalStorageState<Language>(
     'fn-lang',
     constants.DEFAULT_LANGUAGE
@@ -129,7 +133,7 @@ const FunctionForm = ({ onSubmit, onThemeChange }: PropsType) => {
       <Views.FormContent>
         {/* <div ref={divRefAds} /> */}
 
-        <Views.Title>Pre-defined templates</Views.Title>
+        <Views.Title>Templates</Views.Title>
         <Views.Select
           value={activeTemplate || 'custom'}
           onChange={handleSelectTemplateChange}
@@ -184,7 +188,7 @@ const FunctionForm = ({ onSubmit, onThemeChange }: PropsType) => {
           >
             {constants.LANGUAGES.map((lang) => (
               <option key={lang} value={lang}>
-                {lang}
+                {capitalizeFirstLetter(lang)}
               </option>
             ))}
           </Views.Select>

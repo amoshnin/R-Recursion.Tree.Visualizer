@@ -4,6 +4,10 @@ export const Circle = styled.circle`
   stroke-width: 5px;
 `
 
+export const Square = styled.rect`
+  stroke-width: 5px;
+`
+
 export const Text = styled.text`
   font-size: 40px;
   font-weight: bold;
@@ -20,6 +24,10 @@ export const Container = styled.g<{
     const filled = highlight !== 'none'
 
     return css`
+      ${Square} {
+        fill: ${filled ? main : foreground};
+        stroke: ${filled ? main : contrast};
+      }
       ${Circle} {
         fill: ${filled ? main : foreground};
         stroke: ${filled ? main : contrast};
@@ -28,6 +36,10 @@ export const Container = styled.g<{
         fill: ${filled ? foreground : contrast};
       }
       &:hover {
+        ${Square} {
+          fill: ${theme.colors.primary};
+          stroke: ${theme.colors.primary};
+        }
         ${Circle} {
           fill: ${theme.colors.primary};
           stroke: ${theme.colors.primary};
@@ -39,7 +51,7 @@ export const Container = styled.g<{
     `
   }}
 
-  ${Circle}, ${Text} {
+  ${Circle}, ${Square}, ${Text} {
     animation-name: ${keyframes`
       from {
         r: 0;

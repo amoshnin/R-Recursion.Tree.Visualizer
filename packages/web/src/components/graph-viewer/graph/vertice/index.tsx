@@ -13,10 +13,17 @@ type Props = {
 const Vertice = ({ center, label, highlight }: Props) => {
   const textRef = React.useRef<SVGTextElement>(null)
   useScaleDown(textRef, label)
-
+  const rsq = VERTEX_RADIUS * 1.9
   return (
     <Views.Container highlight={highlight}>
-      <Views.Circle cx={center[0]} cy={center[1]} r={VERTEX_RADIUS} />
+      <Views.Square
+        x={center[0] - 32.5}
+        y={center[1] - 33}
+        width={rsq}
+        height={rsq}
+        rx='15'
+      />
+      {/* <Views.Circle cx={center[0]} cy={center[1]} r={VERTEX_RADIUS} /> */}
       <Views.Text x={center[0]} y={center[1]} ref={textRef}>
         {label}
       </Views.Text>
