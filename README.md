@@ -6,7 +6,8 @@
 
 Watch the [demo video](https://youtu.be/1f-KeeN8AHs) or check out the [live project](https://recursion.now.sh).
 
-> Recursion is a concept that is best understood through visualization. This visualization tool written in TypeScript (with React and Node JS Express), will allow you to see visualization for different kinds of recursions. For simplicity, I chose to animate recursive functions using trees. Properties of the recursion tree visualizations are:
+> Recursion is a concept that is best understood through visualization. This visualization tool written in TypeScript (with React and Node JS Express), will allow you to see visualization of different kinds of recursions. For simplicity, I chose to animate recursive functions using trees.
+> Properties of the recursion tree visualizations are:
 >
 > - Each node represents a single recursive function call.
 > - The height of the recursion tree is the depth of our function call stack.
