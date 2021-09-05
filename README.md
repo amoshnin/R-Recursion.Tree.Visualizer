@@ -4,7 +4,7 @@
 
 ## Overview
 
-Watch the [demo video](https://youtu.be/1f-KeeN8AHs) or check out the [live project](https://recursion.now.sh).
+Watch the [demo video](https://youtu.be/VV9sbFn8IoY) on my [YouTube channel](https://www.youtube.com/channel/UC2Q2qLKUSXfPS_mxrtqvixA)
 
 > Recursion is a concept that is best understood through visualization. This visualization tool written in TypeScript (with React and Node JS Express), will allow you to see visualization of different kinds of recursions. For simplicity, I chose to animate recursive functions using trees.
 >
