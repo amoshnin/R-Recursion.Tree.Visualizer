@@ -20,7 +20,7 @@ Watch the [demo video](https://youtu.be/1f-KeeN8AHs) or check out the [live proj
 ### Folders structure
 
 - `packages/web`: react user interface.
-- `packages/lambda`: serverless lambda function to execute user-defined code remotely.
+- `packages/server`: server to execute user-defined code remotely.
 <!-- - `packages/common`: shared code between web and lambda -->
 
 ## Local development
