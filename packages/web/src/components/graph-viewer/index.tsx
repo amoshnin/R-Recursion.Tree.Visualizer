@@ -49,6 +49,7 @@ const TreeViewer = ({
     () => {
       if (time >= times) setIsUpdating(false)
       setTime((time) => (animate ? Math.min(time + 1, times) : times))
+      console.log(time, times)
     },
     isUpdating ? DELAY_IN_MS : null
   )

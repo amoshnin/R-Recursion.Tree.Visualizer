@@ -18,10 +18,9 @@ const Graph = ({ time, edges, vertices, bottomRight }: Props) => {
     <Svg viewBox={`0 0 ${bottomRight[0]} ${bottomRight[1]}`}>
       {Object.entries(edges).map(([key, data]) => {
         const [u, v] = JSON.parse(key)
-
         return (
           time >= data.timeRange[0] &&
-          time <= data.timeRange[1] &&
+          time <= (data.timeRange[1] || Infinity) &&
           vertices[u]?.coord &&
           vertices[v]?.coord && (
             <DirectedEdge
@@ -45,8 +44,8 @@ const Graph = ({ time, edges, vertices, bottomRight }: Props) => {
                 data.times.some((t) => t === time)
                   ? 'current'
                   : data.memoized
-                    ? 'memoized'
-                    : 'none'
+                  ? 'memoized'
+                  : 'none'
               }
             />
           )

@@ -7,7 +7,7 @@ import { isJson, safeParse } from '../utils/safe-json'
 
 /** Runtime valition of the event object received by API Gateway Proxy, returning the parsed event body */
 export const validateAPIGatewayProxyEvent = (
-  event: APIGatewayProxyEvent
+  event: APIGatewayProxyEvent,
 ): Either<string, EventBody> => {
   const eventSchema = joi
     .object({
@@ -40,13 +40,13 @@ export const validateAPIGatewayProxyEvent = (
             joi.object({
               name: joi.string().required(),
               initialValue: joi.string().required(),
-            })
+            }),
           ),
           globalVariables: joi.array().items(
             joi.object({
               name: joi.string().required(),
               value: joi.string().required(),
-            })
+            }),
           ),
         })
         .required(),

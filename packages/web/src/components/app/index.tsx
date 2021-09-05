@@ -73,7 +73,7 @@ const App = () => {
             background: theme[themeType].colors.foreground,
             border: `1px solid ${theme[themeType].colors.border}`,
             color: theme[themeType].colors.contrast,
-            boxShadow: 'none'
+            boxShadow: 'none',
           },
         }}
       />
