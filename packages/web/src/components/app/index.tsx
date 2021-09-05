@@ -11,7 +11,7 @@ import themes from 'shared/styles/themes'
 import { TreeViewerData, ThemeType, FunctionData, Language } from '../../types'
 import { safeParse, safeStringify } from 'shared/utils/safe-json'
 import { url as apiUrl } from 'shared/config/api'
-import { DEFAULT_THEME_TYPE } from 'shared/config/consts'
+import { DEFAULT_THEME_TYPE } from 'shared/config/constants'
 
 const fetchTreeViewerData = (requestBody: any) =>
   fetch(apiUrl, {

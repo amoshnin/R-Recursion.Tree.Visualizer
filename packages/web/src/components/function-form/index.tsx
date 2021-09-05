@@ -2,30 +2,37 @@ import React, { useContext, useState } from 'react'
 import { ThemeContext } from 'styled-components'
 import { toast } from 'react-hot-toast'
 
-import * as s from './styles'
+// PLUGINS IMPORTS //
+
+// COMPONENTS IMPORTS //
+import * as Views from './styles'
 import CodeEditor from './code-editor'
-import { buildFnCodeValidator, buildFnCallValidator } from './validators'
+
+// EXTRA IMPORTS //
+import * as constants from 'shared/config/constants'
+import templates from 'shared/config/templates'
+import { useLocalStorageState, useFormInput, useCarbonAds } from 'shared/hooks'
 import {
   buildFnCodeDecomposer,
   buildFnCodeComposer,
   composeFnData,
   decomposeFnData,
 } from './template-handler'
-import templates from '../../shared/config/templates'
-import useFormInput from 'shared/hooks/use-form-input'
-import useCarbonAds from 'shared/hooks/use-carbon-ads'
-import useLocalStorageState from 'shared/hooks/use-local-storage-state'
-import {
+import { buildFnCodeValidator, buildFnCallValidator } from './validators'
+import './carbon-ads.css'
+
+// TYPE IMPORTS //
+import type {
   Template,
   ThemeType,
   FunctionData,
   Language,
   GlobalVar,
-} from '../../types'
-import './carbon-ads.css'
-import * as consts from '../../shared/config/consts'
+} from 'types'
 
-type Props = {
+/////////////////////////////////////////////////////////////////////////////
+
+type PropsType = {
   onSubmit: (
     lang: Language,
     fnData: FunctionData,
@@ -34,10 +41,10 @@ type Props = {
   onThemeChange: (themeType: ThemeType) => void
 }
 
-const FunctionForm = ({ onSubmit, onThemeChange }: Props) => {
+const FunctionForm = ({ onSubmit, onThemeChange }: PropsType) => {
   const [lang, setLang] = useLocalStorageState<Language>(
     'fn-lang',
-    consts.DEFAULT_LANGUAGE
+    constants.DEFAULT_LANGUAGE
   )
   const [fnCall, setFnCall] = useFormInput(
     'fn-call',
@@ -46,11 +53,11 @@ const FunctionForm = ({ onSubmit, onThemeChange }: Props) => {
   )
   const [fnCode, setFnCode] = useLocalStorageState(
     'fn-code',
-    consts.DEFAULT_FN_CODE
+    constants.DEFAULT_FN_CODE
   )
   const [fnGlobalVars, setFnGlobalVars] = useLocalStorageState<GlobalVar[]>(
     'fn-global-vars',
-    consts.DEFAULT_GLOBAL_VARS
+    constants.DEFAULT_GLOBAL_VARS
   )
 
   const [memoize, setMemoize] = useLocalStorageState('memoize', false)
@@ -60,10 +67,10 @@ const FunctionForm = ({ onSubmit, onThemeChange }: Props) => {
 
   // if null, user changed the default code that comes in with template
   const [activeTemplate, setActiveTemplate] = useState<Template | null>(
-    consts.DEFAULT_TEMPLATE
+    constants.DEFAULT_TEMPLATE
   )
 
-  const divRefAds = useCarbonAds()
+  // const divRefAds = useCarbonAds()
 
   const handleSelectTemplateChange = (
     e: React.ChangeEvent<HTMLSelectElement>
@@ -118,12 +125,12 @@ const FunctionForm = ({ onSubmit, onThemeChange }: Props) => {
   }
 
   return (
-    <s.FormContainer onSubmit={handleFormSubmit}>
-      <s.FormContent>
-        <div ref={divRefAds} />
+    <Views.FormContainer onSubmit={handleFormSubmit}>
+      <Views.FormContent>
+        {/* <div ref={divRefAds} /> */}
 
-        <s.Title>Pre-defined templates</s.Title>
-        <s.Select
+        <Views.Title>Pre-defined templates</Views.Title>
+        <Views.Select
           value={activeTemplate || 'custom'}
           onChange={handleSelectTemplateChange}
         >
@@ -132,11 +139,11 @@ const FunctionForm = ({ onSubmit, onThemeChange }: Props) => {
               {template.name}
             </option>
           ))}
-        </s.Select>
+        </Views.Select>
 
-        <s.Title>Global variables</s.Title>
+        <Views.Title>Global variables</Views.Title>
         {fnGlobalVars.map(({ name, value }, i) => (
-          <s.VariableContainer key={i}>
+          <Views.VariableContainer key={i}>
             <CodeEditor
               lang={lang}
               value={name}
@@ -158,12 +165,12 @@ const FunctionForm = ({ onSubmit, onThemeChange }: Props) => {
                 })
               }}
             />
-          </s.VariableContainer>
+          </Views.VariableContainer>
         ))}
 
-        <s.Title>Recursive function</s.Title>
+        <Views.Title>Recursive function</Views.Title>
         <div style={{ position: 'relative' }}>
-          <s.Select
+          <Views.Select
             value={lang}
             onChange={handleSelectLanguageChange}
             style={{
@@ -175,12 +182,12 @@ const FunctionForm = ({ onSubmit, onThemeChange }: Props) => {
               fontSize: '14px',
             }}
           >
-            {consts.LANGUAGES.map((lang) => (
+            {constants.LANGUAGES.map((lang) => (
               <option key={lang} value={lang}>
                 {lang}
               </option>
             ))}
-          </s.Select>
+          </Views.Select>
           <CodeEditor
             lang={lang}
             value={fnCode}
@@ -198,31 +205,37 @@ const FunctionForm = ({ onSubmit, onThemeChange }: Props) => {
           />
         </div>
 
-        <s.Title>Options</s.Title>
-        <s.Option>
+        <Views.Title>Options</Views.Title>
+        <Views.Option>
           <span>Enable step-by-step animation</span>
-          <s.Switch checked={animate} onChange={() => setAnimate((p) => !p)} />
-        </s.Option>
-        <s.Option>
+          <Views.Switch
+            checked={animate}
+            onChange={() => setAnimate((p) => !p)}
+          />
+        </Views.Option>
+        <Views.Option>
           <span>Enable memoization</span>
-          <s.Switch checked={memoize} onChange={() => setMemoize((p) => !p)} />
-        </s.Option>
-        <s.Option>
+          <Views.Switch
+            checked={memoize}
+            onChange={() => setMemoize((p) => !p)}
+          />
+        </Views.Option>
+        <Views.Option>
           <span>Enable dark mode</span>
-          <s.Switch
+          <Views.Switch
             checked={theme.type === 'dark'}
             onChange={() =>
               onThemeChange(theme.type === 'light' ? 'dark' : 'light')
             }
           />
-        </s.Option>
-      </s.FormContent>
+        </Views.Option>
+      </Views.FormContent>
 
-      <s.FormSubmit>
-        <s.SubmitTextInput {...fnCall} />
-        <s.SubmitButton>Run</s.SubmitButton>
-      </s.FormSubmit>
-    </s.FormContainer>
+      <Views.FormSubmit>
+        <Views.SubmitTextInput {...fnCall} />
+        <Views.SubmitButton>Run</Views.SubmitButton>
+      </Views.FormSubmit>
+    </Views.FormContainer>
   )
 }
 
