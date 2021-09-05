@@ -4,12 +4,15 @@ import * as S from './styles'
 const Footer = () => {
   return (
     <S.Footer>
-      Made with &#9829; by Artem Moshnin{'  '}•{'  '}
+      <a href='https://github.com/Artem711/' target='__blank'>
+        GitHub account
+      </a>
+      {'  '}•{'  '}
       <a
         href='https://github.com/Artem711/R-Recursion.Tree.Visualizer'
         target='__blank'
       >
-        Github
+        GitHub repository
       </a>
     </S.Footer>
   )
