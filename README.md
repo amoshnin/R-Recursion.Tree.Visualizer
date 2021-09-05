@@ -1,7 +1,3 @@
-<div align="center">
-  <img src="./assets/logo.svg" height="100"/>
-</div>
-
 <h1 align="center">Recursion Tree Visualizer</h1>
 
 <p align="center">Tool for visualizing any generic recursive function written in JavaScript or Python.</p>
