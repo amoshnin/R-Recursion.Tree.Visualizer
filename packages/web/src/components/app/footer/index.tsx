@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <S.Footer>
       <a href='https://github.com/Artem711/' target='__blank'>
-        GitHub account
+        GitHub account (Artem711)
       </a>
       {'  '}•{'  '}
       <a
