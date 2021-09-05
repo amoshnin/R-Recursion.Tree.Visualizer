@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/R-Recursion.Tree.Visualizer/static/css/main.d03f9d90.chunk.css",
-    "main.js": "/R-Recursion.Tree.Visualizer/static/js/main.46661f3a.chunk.js",
-    "main.js.map": "/R-Recursion.Tree.Visualizer/static/js/main.46661f3a.chunk.js.map",
-    "runtime-main.js": "/R-Recursion.Tree.Visualizer/static/js/runtime-main.e9e49b47.js",
-    "runtime-main.js.map": "/R-Recursion.Tree.Visualizer/static/js/runtime-main.e9e49b47.js.map",
-    "static/js/2.f909fe2e.chunk.js": "/R-Recursion.Tree.Visualizer/static/js/2.f909fe2e.chunk.js",
-    "static/js/2.f909fe2e.chunk.js.map": "/R-Recursion.Tree.Visualizer/static/js/2.f909fe2e.chunk.js.map",
+    "main.js": "/R-Recursion.Tree.Visualizer/static/js/main.a3ddda14.chunk.js",
+    "main.js.map": "/R-Recursion.Tree.Visualizer/static/js/main.a3ddda14.chunk.js.map",
+    "runtime-main.js": "/R-Recursion.Tree.Visualizer/static/js/runtime-main.f5c0b44e.js",
+    "runtime-main.js.map": "/R-Recursion.Tree.Visualizer/static/js/runtime-main.f5c0b44e.js.map",
+    "static/js/2.dfc456df.chunk.js": "/R-Recursion.Tree.Visualizer/static/js/2.dfc456df.chunk.js",
+    "static/js/2.dfc456df.chunk.js.map": "/R-Recursion.Tree.Visualizer/static/js/2.dfc456df.chunk.js.map",
     "index.html": "/R-Recursion.Tree.Visualizer/index.html",
     "static/css/main.d03f9d90.chunk.css.map": "/R-Recursion.Tree.Visualizer/static/css/main.d03f9d90.chunk.css.map",
-    "static/js/2.f909fe2e.chunk.js.LICENSE.txt": "/R-Recursion.Tree.Visualizer/static/js/2.f909fe2e.chunk.js.LICENSE.txt",
+    "static/js/2.dfc456df.chunk.js.LICENSE.txt": "/R-Recursion.Tree.Visualizer/static/js/2.dfc456df.chunk.js.LICENSE.txt",
     "static/media/first.fde34b19.svg": "/R-Recursion.Tree.Visualizer/static/media/first.fde34b19.svg",
     "static/media/last.669ffbe1.svg": "/R-Recursion.Tree.Visualizer/static/media/last.669ffbe1.svg",
     "static/media/logo.d604f430.svg": "/R-Recursion.Tree.Visualizer/static/media/logo.d604f430.svg",
@@ -17,9 +17,9 @@
     "static/media/previous.e6b3ab3d.svg": "/R-Recursion.Tree.Visualizer/static/media/previous.e6b3ab3d.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.e9e49b47.js",
-    "static/js/2.f909fe2e.chunk.js",
+    "static/js/runtime-main.f5c0b44e.js",
+    "static/js/2.dfc456df.chunk.js",
     "static/css/main.d03f9d90.chunk.css",
-    "static/js/main.46661f3a.chunk.js"
+    "static/js/main.a3ddda14.chunk.js"
   ]
 }
