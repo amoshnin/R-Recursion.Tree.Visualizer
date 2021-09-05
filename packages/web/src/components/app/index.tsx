@@ -78,20 +78,20 @@ const App = () => {
         }}
       />
       <s.AppContainer>
+        <s.Main>
+          <Footer />
+          <TreeViewer
+            isLoading={isLoading}
+            data={treeViewerData}
+            options={treeViewerOptions}
+          />
+        </s.Main>
         <s.Sidebar>
           <FunctionForm
             onSubmit={handleFunctionFormSubmit}
             onThemeChange={setThemeName}
           />
         </s.Sidebar>
-        <s.Main>
-          <TreeViewer
-            isLoading={isLoading}
-            data={treeViewerData}
-            options={treeViewerOptions}
-          />
-          <Footer />
-        </s.Main>
       </s.AppContainer>
     </ThemeProvider>
   )

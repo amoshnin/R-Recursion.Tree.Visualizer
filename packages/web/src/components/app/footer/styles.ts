@@ -4,7 +4,7 @@ export const Footer = styled.footer`
   font-size: 0.8em;
   flex-grow: 0;
   text-align: center;
-  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 
   opacity: 0.35;
   color: ${({ theme }) => theme.colors.contrast};

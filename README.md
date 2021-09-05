@@ -4,7 +4,7 @@
 
 <h1 align="center">Recursion Tree Visualizer</h1>
 
-<p align="center">🥇 Winner project of the <a href="https://www.algoexpert.io/swe-project-contests/2020-summer">AlgoExpert SWE Project Contest</a> 🥇</p>
+<p align="center">Tool for visualizing any generic recursive function written in JavaScript or Python.</p>
 
 ## Overview
 
@@ -26,56 +26,21 @@ In the `packages/web` directory, run:
 # to install all dependencies
 $ npm install
 
-# to run the app on http://localhost:3000
+# to run the app on localhost
 $ npm run start
 ```
 
-### Lambda
+### Server
 
-You can use the Amazon Runtime Interface Emulator (RIE), already contained in the docker image, to test the Lambda function.
-
-In the `packages/lambda` directory, run:
+In the `packages/server` directory, run:
 
 ```bash
-# build your local image
-$ docker build --tag dev-image .
+# to install all dependencies
+$ npm install
 
-# create and run a container using AWS RIE as executable to emulate a server for your lambda function
-$ docker run --rm -p 8080:8080 dev-image
-
-# make a http request to your function, passing event with the -d in body field (escaped json)
-$ curl -XPOST "http://localhost:8080/2015-03-31/functions/function/invocations" -d '{"body":"{}"}'
+# to run the app on localhost
+$ npm run serve
 ```
-
-## Deploy to production
-
-### Web
-
-Set your API Gateway endpoint in `packages/web/src/config/api.ts`.
-
-Ships `packages/web` on Vercel.
-
-### Lambda
-
-The deployment of the Lambda function is automatized by the workflow `cd-lambda-function`. You will need to complete the following set-up steps to use it:
-
-1. Create the following **AWS resources**:
-
-   - Lambda function defined as a container image
-
-   - API Gateway to trigger the lambda function with CORS support
-
-   - ECR repository to store your Docker images
-
-2. Store an IAM user access key in GitHub Actions secrets named `AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`.
-
-3. Change the workflow file `github/workflows/cd-lambda-function.yml`:
-
-   - Replace the value of the `AWS_REGION` env with the region of all your AWS resources.
-
-   - Replace the value of the `AWS_ECR_REPOSITORY_NAME` env with your repository's name.
-
-   - Replace the value of the `AWS_LAMBDA_FUNCTION_NAME` env with your function's name.
 
 ## Acknowledgements
 

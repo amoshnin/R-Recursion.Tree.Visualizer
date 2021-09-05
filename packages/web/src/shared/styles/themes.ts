@@ -30,7 +30,7 @@ const light = {
     borderAccent: 'rgb(207, 207, 207)',
     text: '#111',
     textPlaceholder: '#aaa',
-    primary: '#185EE0',
+    primary: '#656bff',
     error: '#e11d62',
   },
 }
@@ -48,7 +48,7 @@ const dark = {
     borderAccent: '#747474',
     text: '#dadce1',
     textPlaceholder: '#aaa',
-    primary: '#0093FA',
+    primary: '#656bff',
     error: '#ef476f',
   },
 }

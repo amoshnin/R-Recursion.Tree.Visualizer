@@ -3,6 +3,7 @@ import styled, { css, keyframes } from 'styled-components'
 export const Circle = styled.circle`
   stroke-width: 5px;
 `
+
 export const Text = styled.text`
   font-size: 40px;
   font-weight: bold;

@@ -56,6 +56,21 @@ const TreeViewer = ({
 
   return (
     <s.Container>
+      {isLoading ? (
+        <Loader />
+      ) : data === null ? (
+        <>{/* <s.LogoIcon /> */}</>
+      ) : (
+        <>
+          <Graph
+            time={time}
+            vertices={data.verticesData}
+            edges={data.edgesData}
+            bottomRight={data.svgBottomRight}
+          />
+          <LogBar text={data.logs[time]} />
+        </>
+      )}
       <ProgressBar
         value={time / times}
         onChange={(value) => {
@@ -67,21 +82,6 @@ const TreeViewer = ({
         onFirst={() => setTime(0)}
         onLast={() => setTime(times)}
       />
-      {isLoading ? (
-        <Loader />
-      ) : data === null ? (
-        <s.LogoIcon />
-      ) : (
-        <>
-          <LogBar text={data.logs[time]} />
-          <Graph
-            time={time}
-            vertices={data.verticesData}
-            edges={data.edgesData}
-            bottomRight={data.svgBottomRight}
-          />
-        </>
-      )}
     </s.Container>
   )
 }
