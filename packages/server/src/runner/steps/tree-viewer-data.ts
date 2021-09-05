@@ -1,13 +1,20 @@
-import computeRawCoords from './raw-coords'
-import { objectMap } from '../../utils/object-map'
-import {
+// PLUGINS IMPORTS //
+
+// EXTRA IMPORTS //
+import { computeRawCoords } from '../../runner/steps'
+import { objectMap } from '../../shared/utils/object-map'
+
+// TYPE IMPORTS //
+import type {
   Point,
   VerticesData,
   EdgesData,
   TreeViewerData,
   RecursionTree,
   Vertices,
-} from '../../types'
+} from '../../shared/types'
+
+/////////////////////////////////////////////////////////////////////////////
 
 export default function computeTreeViewerData(tree: RecursionTree) {
   const { rawCoords, rawBottomRight } = computeRawCoords(tree.vertices)
@@ -19,7 +26,7 @@ export default function computeTreeViewerData(tree: RecursionTree) {
 function traverseTree(
   tree: RecursionTree,
   rawCoords: Record<number, Point>,
-  rawBottomRight: Point
+  rawBottomRight: Point,
 ): TreeViewerData {
   const logs: string[] = []
   const edgesData = initialEdgesData(tree.vertices)
@@ -41,7 +48,7 @@ function traverseTree(
         // parentId -> childId
         edgesData[edgeKey(parentId, childId)].timeRange[0] = time++
         logs.push(
-          `fn(${verticesData[parentId].label}) calls fn(${verticesData[childId].label})`
+          `fn(${verticesData[parentId].label}) calls fn(${verticesData[childId].label})`,
         )
 
         eulerTour(childId)
@@ -53,13 +60,15 @@ function traverseTree(
           logs.push(
             `fn(${verticesData[childId].label}) gets ${
               edgesData[edgeKey(childId, parentId)].label
-            } from memory and returns it to fn(${verticesData[parentId].label})`
+            } from memory and returns it to fn(${
+              verticesData[parentId].label
+            })`,
           )
         } else {
           logs.push(
             `fn(${verticesData[childId].label}) returns ${
               edgesData[edgeKey(childId, parentId)].label
-            } to fn(${verticesData[parentId].label})`
+            } to fn(${verticesData[parentId].label})`,
           )
         }
 
@@ -71,7 +80,7 @@ function traverseTree(
   })()
 
   logs.push(
-    `fn(${verticesData[0].label}) returns ${labelizeEdgeWeight(tree.fnResult)}`
+    `fn(${verticesData[0].label}) returns ${labelizeEdgeWeight(tree.fnResult)}`,
   )
 
   return {
@@ -85,7 +94,7 @@ function traverseTree(
 
 const initialVerticesData = (
   rawCoords: Record<number, Point>,
-  vertices: Vertices
+  vertices: Vertices,
 ): VerticesData => {
   return objectMap(rawCoords, (c, key) => {
     const v = Number(key)
@@ -135,7 +144,7 @@ const labelizeVerticeArgs = (verticeArgs: any[] | undefined) => {
 
 const labelize = (value: any) => {
   return JSON.stringify(value, (_: string, v: any) =>
-    typeof v === 'number' ? labelizeNumber(v) : v
+    typeof v === 'number' ? labelizeNumber(v) : v,
   ).replace(/"/g, '')
 }
 

@@ -1,7 +1,9 @@
+// PLUGINS IMPORTS //
 import childProcess from 'child_process'
 import util from 'util'
-import { RecursionTree, SupportedLanguages } from '../../types'
-import { Either, error, success } from '../../utils/either'
+
+// EXTRA IMPORTS //
+import { Either, error, success } from '../../shared/utils/either'
 import { Error } from '../../errors/common'
 import {
   ChildProcessError,
@@ -13,10 +15,13 @@ import {
   emptyTreeError,
   exceededRecursiveCallsLimitError,
 } from '../../errors/tree'
-import debug from 'debug'
 import { validateChildProcessStdout } from '../../validations/stdout'
 
-const log = debug('app:runner:recursion-tree')
+// TYPE IMPORTS //
+import type { RecursionTree, SupportedLanguages } from '../../shared/types'
+
+/////////////////////////////////////////////////////////////////////////////
+
 const exec = util.promisify(childProcess.exec)
 
 const CHILD_PROCESS_TIMEOUT_MS = 5000
@@ -24,7 +29,7 @@ const CHILD_PROCESS_TIMEOUT_MS = 5000
 /** Starts a child process that evaluate the source code content and return the recursion tree. */
 export default async function generateRecursionTree(
   sourceCode: string,
-  lang: SupportedLanguages
+  lang: SupportedLanguages,
 ): Promise<
   Either<
     Error<
@@ -40,21 +45,20 @@ export default async function generateRecursionTree(
   const declare = buildDeclare(lang)
 
   try {
-    const { stdout: rawStdout } = await exec(
-      declare.command(sourceCode), 
-      { timeout: CHILD_PROCESS_TIMEOUT_MS }
-    ) // throws exceptions if not output a stdout
+    const { stdout: rawStdout } = await exec(declare.command(sourceCode), {
+      timeout: CHILD_PROCESS_TIMEOUT_MS,
+    }) // throws exceptions if not output a stdout
     // log(rawStdout)
 
     const validatedStdout = validateChildProcessStdout(rawStdout)
     if (validatedStdout.isError())
-      throw new Error(`Fail to deserialize the \`rawStdout\` object:\n${validatedStdout.value}`)
+      throw new Error(
+        `Fail to deserialize the \`rawStdout\` object:\n${validatedStdout.value}`,
+      )
 
     const stdout = validatedStdout.value
     if (stdout.errorValue !== null)
-      return error(
-        exceededRecursiveCallsLimitError(stdout.errorValue)
-      )
+      return error(exceededRecursiveCallsLimitError(stdout.errorValue))
 
     const recursionTree = stdout.successValue!
 
@@ -65,7 +69,7 @@ export default async function generateRecursionTree(
     if (recursionTreeIsEmpty) return error(emptyTreeError())
 
     return success(recursionTree)
-  } catch (err) {
+  } catch (err: any) {
     if (err?.killed) return error(timeoutError(CHILD_PROCESS_TIMEOUT_MS))
     if (err?.stderr) return error(runtimeError(err.stderr as string))
     throw err

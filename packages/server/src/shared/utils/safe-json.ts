@@ -1,14 +1,6 @@
-import { debug } from 'debug'
-const log = debug('app:utils:safe-json')
-
-/* FIXME: code shared between (ESSA EH A FONTE DA VERDADE)
-  - lambda/src/utils/safe-json.ts
-  - lambda/src/runner/operations/get-full-source-code.ts
-  - web/src/utils/safe-json.ts
-*/
-
 export const safeStringify = (obj: any) => JSON.stringify(obj, replacer)
-export const safeParse = (str: string) => isJson(str)? JSON.parse(sanitize(str), reviver) : {}
+export const safeParse = (str: string) =>
+  isJson(str) ? JSON.parse(sanitize(str), reviver) : {}
 
 export const isJson = (str: string) => {
   const sanitized = sanitize(str)
@@ -36,6 +28,4 @@ const reviver = (_key: string, value: any) => {
 }
 
 const sanitize = (jsonString: string) =>
-  jsonString
-    .replace(/,\s*]/g, ']')
-    .replace(/,\s*}/g, '}')
+  jsonString.replace(/,\s*]/g, ']').replace(/,\s*}/g, '}')

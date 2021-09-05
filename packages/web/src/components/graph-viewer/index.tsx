@@ -5,7 +5,7 @@ import Graph from './graph'
 import ProgressBar from './progress-bar'
 import LogBar from './log-bar'
 import Loader from './loader'
-import useInterval from '../../hooks/use-interval'
+import useInterval from 'shared/hooks/use-interval'
 import { TreeViewerData } from '../../types'
 
 const DELAY_IN_MS = 200

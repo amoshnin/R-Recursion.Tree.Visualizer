@@ -1,9 +1,3 @@
-/* code shared between
-  - lambda/src/utils/safe-json.ts
-  - lambda/src/runner/operations/get-full-source-code.ts
-  - web/src/utils/safe-json.ts
-*/
-
 export const safeStringify = (obj: any) => JSON.stringify(obj, replacer)
 export const safeParse = (text: string) => JSON.parse(text, reviver)
 

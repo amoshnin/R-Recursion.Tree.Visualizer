@@ -35,7 +35,7 @@ const CodeEditor = ({
         onValueReset()
         return
       }
-      
+
       if (!shouldValueChange || shouldValueChange(newCode))
         onValueChange(newCode)
     },
@@ -47,6 +47,7 @@ const CodeEditor = ({
       <Highlight
         {...defaultProps}
         code={code}
+        // @ts-ignore
         theme={prismTheme[theme.type]}
         language={prismLanguage[lang]}
       >

@@ -1,17 +1,17 @@
 import React, { useState } from 'react'
 import { ThemeProvider } from 'styled-components'
 import { Toaster, toast } from 'react-hot-toast'
-import GlobalStyle from '../../styles/global'
-import theme from '../../styles/themes'
+import GlobalStyle from 'shared/styles/global'
+import theme from 'shared/styles/themes'
 import * as s from './styles'
 import FunctionForm from '../function-form'
 import TreeViewer from '../graph-viewer'
 import Footer from './footer'
-import themes from '../../styles/themes'
+import themes from 'shared/styles/themes'
 import { TreeViewerData, ThemeType, FunctionData, Language } from '../../types'
-import { safeParse, safeStringify } from '../../utils/safe-json'
-import { url as apiUrl } from './../../config/api'
-import { DEFAULT_THEME_TYPE } from '../../config/consts'
+import { safeParse, safeStringify } from 'shared/utils/safe-json'
+import { url as apiUrl } from 'shared/config/api'
+import { DEFAULT_THEME_TYPE } from 'shared/config/consts'
 
 const fetchTreeViewerData = (requestBody: any) =>
   fetch(apiUrl, {

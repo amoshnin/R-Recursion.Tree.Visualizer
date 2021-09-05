@@ -1,19 +1,26 @@
-import { FunctionData, SupportedLanguages } from '../../types'
+// PLUGINS IMPORTS //
+
+// EXTRA IMPORTS //
+
+// TYPE IMPORTS //
+import type { FunctionData, SupportedLanguages } from 'shared/types'
+
+/////////////////////////////////////////////////////////////////////////////
 
 export default function translateToPlainCode(
   fnData: FunctionData,
   lang: SupportedLanguages,
-  options: { memoize: boolean }
+  options: { memoize: boolean },
 ) {
   const declare = buildDeclare(lang)
 
   const globalVarLines = (fnData.globalVariables || []).map((param) =>
-    declare.variable(param.name, param.value)
+    declare.variable(param.name, param.value),
   )
 
   const paramsNames = (fnData.params || []).map((param) => param.name)
   const paramsInitialValues = (fnData.params || []).map(
-    (param) => param.initialValue
+    (param) => param.initialValue,
   )
 
   const plainCode = [
@@ -51,10 +58,7 @@ const buildDeclare = (lang: SupportedLanguages) => ({
         '}',
       ].join('\n')
     if (lang === 'python')
-      return [
-        `def ${name}(${params.join(', ')}):`,
-        indent(body)
-      ].join('\n')
+      return [`def ${name}(${params.join(', ')}):`, indent(body)].join('\n')
     return ''
   },
 })

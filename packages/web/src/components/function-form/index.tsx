@@ -11,10 +11,10 @@ import {
   composeFnData,
   decomposeFnData,
 } from './template-handler'
-import templates from '../../config/templates'
-import useFormInput from '../../hooks/use-form-input'
-import useCarbonAds from '../../hooks/use-carbon-ads'
-import useLocalStorageState from '../../hooks/use-local-storage-state'
+import templates from '../../shared/config/templates'
+import useFormInput from 'shared/hooks/use-form-input'
+import useCarbonAds from 'shared/hooks/use-carbon-ads'
+import useLocalStorageState from 'shared/hooks/use-local-storage-state'
 import {
   Template,
   ThemeType,
@@ -23,7 +23,7 @@ import {
   GlobalVar,
 } from '../../types'
 import './carbon-ads.css'
-import * as consts from '../../config/consts'
+import * as consts from '../../shared/config/consts'
 
 type Props = {
   onSubmit: (
@@ -44,7 +44,10 @@ const FunctionForm = ({ onSubmit, onThemeChange }: Props) => {
     'fn()',
     buildFnCallValidator(lang)
   )
-  const [fnCode, setFnCode] = useLocalStorageState('fn-code', consts.DEFAULT_FN_CODE)
+  const [fnCode, setFnCode] = useLocalStorageState(
+    'fn-code',
+    consts.DEFAULT_FN_CODE
+  )
   const [fnGlobalVars, setFnGlobalVars] = useLocalStorageState<GlobalVar[]>(
     'fn-global-vars',
     consts.DEFAULT_GLOBAL_VARS
@@ -109,6 +112,7 @@ const FunctionForm = ({ onSubmit, onThemeChange }: Props) => {
       const fnData = composeFnData(fnCode, fnCall.value, fnGlobalVars, lang) // throw error
       onSubmit(lang, fnData, { memoize, animate })
     } catch (error) {
+      // @ts-ignore
       toast.error(error.message)
     }
   }
@@ -168,7 +172,7 @@ const FunctionForm = ({ onSubmit, onThemeChange }: Props) => {
               right: '0',
               width: '80px',
               height: '22px',
-              fontSize: '14px'
+              fontSize: '14px',
             }}
           >
             {consts.LANGUAGES.map((lang) => (

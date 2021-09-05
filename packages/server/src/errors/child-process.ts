@@ -1,6 +1,11 @@
-import { Error } from './common'
-import { debug } from 'debug'
-const log = debug('app:errors:child-process')
+// PLUGINS IMPORTS //
+
+// EXTRA IMPORTS //
+import { Error } from 'errors/common'
+
+// TYPE IMPORTS //
+
+/////////////////////////////////////////////////////////////////////////////
 
 export enum ChildProcessError {
   CompilationError = 'Compilation Error',
@@ -9,12 +14,13 @@ export enum ChildProcessError {
 }
 
 export const runtimeError = (
-  stderr: string
+  stderr: string,
 ): Error<ChildProcessError.RuntimeError> => {
   // log(stderr)
 
   const matched = stderr.match(/([a-zA-Z]+Error:\s[^\n]+)/gm)
-  if (matched === null) throw new Error(`Fail to parse the \`stderr\`:\n${stderr}`)
+  if (matched === null)
+    throw new Error(`Fail to parse the \`stderr\`:\n${stderr}`)
 
   const errorMessage = matched[0]
 
@@ -25,7 +31,7 @@ export const runtimeError = (
 }
 
 export const timeoutError = (
-  timeLimitMs: number
+  timeLimitMs: number,
 ): Error<ChildProcessError.TimeoutError> => ({
   type: ChildProcessError.TimeoutError,
   reason: `The execution time limit of ${toSeconds(timeLimitMs)}s was exceeded`,

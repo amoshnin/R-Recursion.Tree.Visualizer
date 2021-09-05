@@ -1,6 +1,11 @@
-import { SupportedLanguages } from '../../types'
-import { debug } from 'debug'
-const log = debug('app:runner:source-code')
+// PLUGINS IMPORTS //
+
+// EXTRA IMPORTS //
+
+// TYPE IMPORTS //
+import type { SupportedLanguages } from 'shared/types'
+
+/////////////////////////////////////////////////////////////////////////////
 
 /**
  * Get the full code string that will be passed via cli argument, so escape char ".
@@ -8,13 +13,11 @@ const log = debug('app:runner:source-code')
  */
 export default function getSourceCode(
   plainCode: string,
-  lang: SupportedLanguages
+  lang: SupportedLanguages,
 ) {
-  return [
-    dependenciesCode[lang],
-    plainCode,
-    recursionTrackerCode[lang]
-  ].join('\n\n')
+  return [dependenciesCode[lang], plainCode, recursionTrackerCode[lang]].join(
+    '\n\n',
+  )
 }
 
 const dependenciesCode: Record<SupportedLanguages, string> = {

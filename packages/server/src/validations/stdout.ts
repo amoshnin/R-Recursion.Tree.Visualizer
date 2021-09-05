@@ -1,11 +1,18 @@
+// PLUGINS IMPORTS //
 import joi from 'joi'
-import { ChildProcessStdout } from '../types'
-import { Either, error, success } from '../utils/either'
-import { safeParse } from '../utils/safe-json'
+
+// EXTRA IMPORTS //
+import { Either, error, success } from '../shared/utils/either'
+import { safeParse } from '../shared/utils/safe-json'
+
+// TYPE IMPORTS //
+import type { ChildProcessStdout } from '../shared/types'
+
+/////////////////////////////////////////////////////////////////////////////
 
 /** Runtime valition of the stdout received by child process, returning the parsed stdout */
 export const validateChildProcessStdout = (
-  rawStdout: string
+  rawStdout: string,
 ): Either<string, ChildProcessStdout> => {
   const stdout = safeParse(rawStdout) as ChildProcessStdout
 
@@ -21,11 +28,11 @@ export const validateChildProcessStdout = (
             joi.object({
               childId: joi.number().required(),
               weight: joi.any().not(null), // if null, probably there was an error when parsing a function call result to JSON
-            })
+            }),
           )
           .required(),
         memoized: joi.boolean().required(),
-      })
+      }),
     )
     .required()
 

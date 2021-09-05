@@ -2,8 +2,14 @@ import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
   #root {
-    font-family: ${({ theme }) => theme.fonts.body};
-    color: ${({ theme }) => theme.colors.contrast};
+    font-family: ${({ theme }) => {
+      // @ts-ignore
+      return theme.fonts.body
+    }};
+    color: ${({ theme }) => {
+      // @ts-ignore
+      return theme.colors.contrast
+    }};
     font-size: 15px;
   }
 
@@ -14,7 +20,7 @@ export default createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
   }
-   
+
   *:focus {
     outline: none;
   }

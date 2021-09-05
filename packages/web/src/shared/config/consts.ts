@@ -1,5 +1,5 @@
-import { buildFnCodeComposer } from "../components/function-form/template-handler";
-import { GlobalVar, Language, Template, ThemeType } from "../types";
+import { buildFnCodeComposer } from '../../components/function-form/template-handler'
+import { GlobalVar, Language, Template, ThemeType } from '../../types'
 
 export const DEFAULT_THEME_TYPE: ThemeType = 'light'
 export const DEFAULT_LANGUAGE: Language = 'python'

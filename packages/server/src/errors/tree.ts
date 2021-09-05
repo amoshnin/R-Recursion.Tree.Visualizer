@@ -1,4 +1,11 @@
-import { Error } from './common'
+// PLUGINS IMPORTS //
+
+// EXTRA IMPORTS //
+import { Error } from 'errors/common'
+
+// TYPE IMPORTS //
+
+/////////////////////////////////////////////////////////////////////////////
 
 export enum TreeError {
   EmptyTree = 'Empty Tree Error',
@@ -11,7 +18,7 @@ export const emptyTreeError = (): Error<TreeError.EmptyTree> => ({
 })
 
 export const exceededRecursiveCallsLimitError = (
-  recursiveCallsLimit: number
+  recursiveCallsLimit: number,
 ): Error<TreeError.ExceededRecursiveCallsLimit> => ({
   type: TreeError.ExceededRecursiveCallsLimit,
   reason: `The limit of ${recursiveCallsLimit} recursive calls was exceeded`,

@@ -4,9 +4,9 @@ import * as S from './styles'
 const Footer = () => {
   return (
     <S.Footer>
-      Made with &#9829; by Bruno Papa{'  '}•{'  '}
+      Made with &#9829; by Artem Moshnin{'  '}•{'  '}
       <a
-        href='https://github.com/brpapa/recursion-tree-visualizer'
+        href='https://github.com/Artem711/R-Recursion.Tree.Visualizer'
         target='__blank'
       >
         Github

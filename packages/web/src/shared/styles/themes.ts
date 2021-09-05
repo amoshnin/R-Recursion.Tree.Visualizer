@@ -1,4 +1,4 @@
-import { ThemeType as ThemeType } from '../types'
+import { ThemeType as ThemeType } from 'types'
 
 const common = {
   fonts: {

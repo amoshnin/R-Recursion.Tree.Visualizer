@@ -2,7 +2,7 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es6",
-    "rootDir": "./",
+    "baseUrl": "src",
     "esModuleInterop": true,
     "noEmit": false,
     "incremental": false

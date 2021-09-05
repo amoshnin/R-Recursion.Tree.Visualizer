@@ -1,7 +1,7 @@
 import express, { Request, Response, NextFunction } from 'express'
 import cors from 'cors'
 import buildRunner from './runner'
-import { EventBody } from './types'
+import type { EventBody } from 'shared/types'
 
 const app = express()
 const port = 3000

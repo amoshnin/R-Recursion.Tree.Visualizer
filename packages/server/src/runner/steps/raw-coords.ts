@@ -1,4 +1,11 @@
-import { Point, Vertices } from '../../types'
+// PLUGINS IMPORTS //
+
+// EXTRA IMPORTS //
+
+// TYPE IMPORTS //
+import type { Point, Vertices } from 'shared/types'
+
+/////////////////////////////////////////////////////////////////////////////
 
 type TreeNode = {
   /** Must be >= 0 */
@@ -106,7 +113,7 @@ export default function computeRawCoords(vertices: Vertices, rootId = 0) {
     rightOuter?: TreeNode,
     maxDiff?: number,
     leftOffset = 0,
-    rightOffset = 0
+    rightOffset = 0,
   ): {
     li: TreeNode
     ri: TreeNode
@@ -165,4 +172,3 @@ function centralX(nodes: TreeNode[]) {
     ? (nodes[0].x + nodes[length - 1].x) / 2
     : nodes[(length - 1) / 2].x
 }
-

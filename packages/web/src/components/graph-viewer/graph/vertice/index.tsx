@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Circle, Text } from './styles'
 import { VERTEX_RADIUS } from '../constants'
-import useScaleDown from '../../../../hooks/use-scale-down'
+import useScaleDown from 'shared/hooks/use-scale-down'
 import { Point } from '../../../../types'
 
 type Props = {
