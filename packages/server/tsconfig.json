@@ -3,6 +3,8 @@
     "module": "commonjs",
     "target": "es6",
     "rootDir": "./",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "noEmit": false,
+    "incremental": false
   }
 }
